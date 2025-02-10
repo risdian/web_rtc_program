@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebRTC Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .video-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .video-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        video {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            background: black;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+
+        button:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Video Streams at the Top -->
+    <div class="video-container">
+        <div class="video-box">
+            <h3>Local Stream</h3>
+            <video id="webcamVideo" autoplay playsinline></video>
+        </div>
+        <div class="video-box">
+            <h3>Remote Stream</h3>
+            <video id="remoteVideo" autoplay playsinline></video>
+        </div>
+    </div>
+
+    <!-- Buttons at the Bottom -->
+    <div class="buttons">
+        <h2>1. Start your Webcam</h2>
+        <button id="webcamButton">Start Webcam</button>
+
+        <h2>2. Create a Call</h2>
+        <button id="callButton" disabled>Create Call (Offer)</button>
+
+        <h2>3. Join a Call</h2>
+        <input id="callInput" placeholder="Enter Call ID" />
+        <button id="answerButton" disabled>Answer</button>
+
+        <h2>4. Hang Up</h2>
+        <button id="hangupButton" disabled>Hangup</button>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+
+</body>
+</html>
